@@ -1,29 +1,36 @@
-# Local environment and secrets
+# Real configuration and credentials
+config.json
 .env
-.env.*
-!.env.example
-secrets/
+*.env
+*.env.*
+config.local.json
 credentials/
-*.pem
-*.key
+secrets/
 *token*
 *cookie*
 *session*
 
-# Runtime data and logs
-logs/
+# Runtime state, logs, inbox and caches
+*.db
+*.db-shm
+*.db-wal
 *.log
-tmp/
-temp/
+*.sqlite*
+state/
+inbox/
+media/
 cache/
-__pycache__/
-*.py[cod]
-.venv/
-venv/
-node_modules/
+*.bak
+*.tmp
 
-# Local editor and OS files
+# Keys and certificates
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa*
+id_ed25519*
+
+# OS / editor noise
 .DS_Store
 Thumbs.db
-.vscode/
-.idea/
