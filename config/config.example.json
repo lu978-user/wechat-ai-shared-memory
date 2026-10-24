@@ -1,0 +1,15 @@
+{
+  "bindings": [
+    {
+      "allow_wxids": ["YOUR_WXID_HERE"],
+      "delivery": "pull",
+      "name": "muse"
+    }
+  ],
+  "local_api": {
+    "listen": "127.0.0.1:PORT",
+    "token": "CHANGE_ME_RANDOM_TOKEN"
+  },
+  "media_dir": "/home/USER/.local/state/wx-bot/media",
+  "state_dir": "/home/USER/.local/state/wx-bot"
+}
