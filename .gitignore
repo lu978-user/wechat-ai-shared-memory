@@ -1,0 +1,29 @@
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+secrets/
+credentials/
+*.pem
+*.key
+*token*
+*cookie*
+*session*
+
+# Runtime data and logs
+logs/
+*.log
+tmp/
+temp/
+cache/
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+node_modules/
+
+# Local editor and OS files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
