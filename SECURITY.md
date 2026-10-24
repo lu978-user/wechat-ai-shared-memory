@@ -1,36 +1,20 @@
-# Security Policy
+# 安全政策
 
-## Scope
+## 不要提交
+- 微信 bot token、用户标识、登录态、Cookie、二维码或会话凭证。
+- 模型 API Key、OAuth 凭证、Google 访问令牌与刷新令牌。
+- 真实的 `config.json`、`.env` 或含有真实秘密的配置。
+- 私人共享记忆、聊天记录、个人联系方式、详细住址或健康信息。
+- 服务器内部地址、带凭证的代理地址、日志、数据库、收件箱、缓存和运行状态。
 
-This project explores a bridge between WeChat messaging, an AI assistant, and an authorized shared-memory document. The public repository is being prepared; it does not yet contain a complete deployable implementation.
+## 提交前
+1. 只提交示例模板，所有真实值换成占位符。
+2. 运行 `bash scripts/audit-public-tree.sh` 并检查输出。
+3. 逐行人工审阅新增的脚本、模板和示例。正则审计无法证明文件绝对安全。
+4. 不确定能否公开的内容一律排除。
 
-## Never commit secrets or private data
+## 高权限脚本
+示例服务保留原型中的 `User=root`，恢复脚本也会安装并启动 systemd 单元。只在可信且由你控制的环境使用；保护脚本、备份单元和父目录，避免普通用户修改后由 root 执行。
 
-Do not commit any of the following:
-
-- WeChat session files, cookies, QR codes, login tokens, or private chat exports
-- API keys, access tokens, webhook secrets, passwords, or OAuth client secrets
-- Google OAuth credentials or private document contents
-- Personal phone numbers, home addresses, health information, or identifiable learning records
-- Logs or screenshots containing any of the above
-
-Use environment variables or a local, untracked configuration file. Keep real values out of examples and issue reports.
-
-## If a secret is exposed
-
-1. Revoke or rotate the exposed credential immediately.
-2. Check relevant account activity and revoke unnecessary sessions or grants.
-3. Remove the secret from the current files and, if needed, clean Git history.
-4. Do not rely on deleting a commit or making the repository private as a substitute for rotating the credential.
-
-## Least privilege and write safety
-
-- Grant connectors only the permissions needed for the task.
-- Treat incoming messages and document contents as untrusted data.
-- Require explicit confirmation before sending messages to third parties, deleting data, or making sensitive changes.
-- Avoid storing private conversation transcripts in a shared-memory document. Store only concise, useful, non-sensitive facts with a clear purpose.
-- Redact logs before publishing them.
-
-## Reporting a vulnerability
-
-Please do not publish credentials or exploitable personal data in a public issue. Contact the repository maintainer privately through GitHub's available contact options.
+## 发现疑似泄露
+立即轮换或撤销受影响的凭证，并检查 Git 历史。单纯删除当前文件不能保证历史提交中的秘密已清除。
