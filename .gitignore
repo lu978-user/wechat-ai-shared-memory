@@ -3,6 +3,8 @@ config.json
 .env
 *.env
 *.env.*
+# Keep the placeholder template available to new users.
+!.env.example
 config.local.json
 credentials/
 secrets/
