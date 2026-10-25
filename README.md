@@ -18,6 +18,8 @@
 
 示例 systemd 单元保留原型中的 `User=root`，便于个人隔离虚拟机快速部署与恢复。这是便利性取舍，意味着服务具有较高权限。仅在可信环境使用，保护配置与脚本权限，local API 只监听回环地址，并限制微信白名单。
 
+第三方依赖：`wx-bot` 上游是 https://github.com/lawrencewzen/wx-bot（MIT 许可证），本项目记录的参考版本是 [v0.4.8](https://github.com/lawrencewzen/wx-bot/releases/tag/v0.4.8)。本仓库不打包第三方二进制；自行下载时应核对官方发布资产与 SHA-256 校验和。
+
 ## 测试
 运行 `bash tests/test_config_example.sh` 和 `bash tests/test_audit.sh`。安全审计仅覆盖常见模式，不能替代人工检查。
 
